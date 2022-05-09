@@ -1,3 +1,29 @@
 <resources>
-    <string name="app_name">Wordle</string>
+        <string name="app_name">my wordle</string>
+        <string name="HOW_TO_PLAY">HOW TO PLAYR</string>
+        <string name="guess_the_hidden_word_in_six_attempts">Guess the hidden word in six attempts.</string>
+        <string name="Each_guess_must_be_a_valid_5_letter_word">Each guess must be a valid 5 letter word</string>
+        <string name="after_each_guess_the_color_of_the_letters_changes_to_show_how_close_you_are_to_getting_the_word_right">After each guess the color of the letters changes to show how close you are to getting the word right.</string>
+        <string name="options">OPTIONS</string>
+        <string name="dark_mode">dark mode</string>
+        <string name="start_with_yesterdays_word">Start with yesterday word</string>
+        <string name="Colorblind_mode">Colorblind mode</string>
+        <string name="accessibility_aids">accessibility aids</string>
+        <string name="Advertising">Advertising</string>
+        <string name="Contact">Contact</string>
+        <string name="email_twitter">Email | Twitter</string>
+        <string name="Privacy_Policy">Privacy Policy</string>
+        <string name="_34">#34</string>
+        <string name="adaptacion_de_wordle_de_ana_asins" translatable="false">Wordle adaptation of Ana Asins</string>
+        <string name="close_button">Close button</string>
+        <string name="start">Start</string>
+        <string name="options_2">Options</string>
+        <string name="information">Information</string>
+        <string name="username">Username</string>
+        <string name="play">Play</string>
+        <string name="word">word</string>
+        <string name="check">check</string>
+        <string name="wordle_en">WORDLE (EN)</string>
+        <string name="WORDLE">WORDLE</string>
+
 </resources>
