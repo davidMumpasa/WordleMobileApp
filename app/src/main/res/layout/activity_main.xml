@@ -16,19 +16,26 @@
             android:orientation="vertical" >
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="73dp"
                 android:orientation="horizontal"
                 android:layout_gravity="center">
+
+                <Button
+                    android:id="@+id/btn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="99dp"
+                    android:text="back"/>
 
 
                 <TextView
                     android:id="@+id/secondTextView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="@android:dimen/app_icon_size"
-                    android:layout_marginStart="40dp"
+                    android:layout_marginStart="11dp"
                     android:layout_marginTop="9dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_marginBottom="13dp"
                     android:text="@string/WORDLE"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1" />

@@ -6,4 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity2">
 
+    <LinearLayout
+        android:layout_width="413dp"
+        android:layout_height="459dp"
+        android:background="@color/cardview_light_background"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="136dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="150dp"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="20dp"
+            android:scrollbarSize="89dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="79dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="12dp"
+            android:text="Please Choose a file"
+            android:textAlignment="center"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="34dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="120dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="9dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="40dp"
+            android:text="textFile 1"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="146dp"
+            tools:layout_editor_absoluteY="268dp">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="120dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginBottom="99dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="40dp"
+            android:text="textFile 1"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="146dp"
+            tools:layout_editor_absoluteY="268dp">
+
+        </Button>
+
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

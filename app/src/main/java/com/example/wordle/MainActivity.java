@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -31,34 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private String word = "";
     private boolean GameWin;
 
-    public List<String> extractWordList() {
-        List<String> wordlist= new ArrayList<>();
-        try{
-            InputStream file = getAssets().open("wrdl5.txt");
-            int size = file.available();
-            byte[] buffer = new byte[size];
-            file.read(buffer);
-            file.close() ;
-            String words[] = new String(buffer).split("\n");
-            wordlist= Arrays.asList(words);
-
-
-        }catch (IOException ex){
-            ex.printStackTrace();
-        }
-
-        return wordlist;
-    }
-
-    private static String generateWord(List<String> wordList) {
-        String word = "";
-
-        int random  = (int) Math.floor(Math.random()*wordList.size());
-        word = wordList.get(0);
-
-        return word;
-    }
-
 
 
     @Override
@@ -66,23 +39,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button btn1 = findViewById(R.id.btn1);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                startActivity(intent);
+            }
+        });
+
         Button checkButton = findViewById(R.id.checkButton);
         TextInputLayout checkInput = findViewById(R.id.checkInput);
         //Toast.makeText(this,word,Toast.LENGTH_LONG).show();
+
+        Intent intent = getIntent();
+
+        word = intent.getStringExtra("word");
 
         checkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                List<String> wordList = new ArrayList();
-
                 String guess = checkInput.getEditText().getText().toString();
-
-                wordList = extractWordList();
-
-                word = generateWord(wordList);
-
-                checkInput.getEditText().getText().clear();
+   checkInput.getEditText().getText().clear();
 
                 if (guess.length() == 5) {
                     if(numGuesses == 0){
@@ -183,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         if(cout == 5){
+
+                            numGuesses --;
                             numGameWon ++;
                             GameWin = true;
                             Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_SHORT).show();
@@ -190,8 +172,9 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_SHORT).show();
                             numGameLost ++;
                             GameWin = false;
+                            numGuesses ++;
                         }
-                        numGuesses ++;
+
 
                         // group 2
                     } else if(numGuesses ==1){
@@ -292,14 +275,18 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         if(cout1 == 5){
+
+                            numGuesses --;
+
                             GameWin = true;
                             numGameWon ++;
                             Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_SHORT).show();
                         } else{
                             Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_SHORT).show();
                             GameWin = false;
+                            numGuesses ++;
                         }
-                        numGuesses ++;
+
                     } else if(numGuesses == 2){
                         int count2 = 0;
 
@@ -399,14 +386,18 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         if(count2 == 5){
+
+                            numGuesses --;
+
                             GameWin = true;
                             numGameWon ++;
                             Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_SHORT).show();
                         } else{
                             Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_SHORT).show();
                             GameWin = false;
+                            numGuesses ++;
                         }
-                        numGuesses ++;
+
                     } else if(numGuesses == 3){
 
                         int count3 = 0;
@@ -507,14 +498,18 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         if(count3 == 5){
+
+                            numGuesses --;
+
                             GameWin = true;
                             numGameWon ++;
                             Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_SHORT).show();
                         } else{
                             Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_SHORT).show();
                             GameWin = false;
+                            numGuesses ++;
                         }
-                        numGuesses ++;
+
                     } else if(numGuesses == 4){
                         int coun4 = 0;
 
@@ -610,14 +605,18 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         if(coun4 == 5){
+
+                            numGuesses --;
+
                             GameWin = true;
                             numGameWon ++;
                             Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_SHORT).show();
                         } else{
                             Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_SHORT).show();
                             GameWin = false;
+                            numGuesses ++;
                         }
-                        numGuesses ++;
+
                     } else if(numGuesses == 5){
 
                         int count5 = 0;
@@ -713,44 +712,25 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         if(count5 == 5){
+
+                            numGuesses --;
+
                             GameWin = true;
                             numGameWon ++;
                             Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_SHORT).show();
                         } else{
                             Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_SHORT).show();
                             GameWin = false;
+                            numGuesses ++;
                         }
 
-                    }
-                    if(numGuesses == MAX_GUESS){
+                    }else if(numGuesses >= MAX_GUESS){
 
-                        switch (numGameWon){
-                            case 1:
-                                numGuesses -=numGameWon;
-                                break;
-                            case 2:
-                                numGuesses -=numGameWon;
-                                break;
-                            case 3:
-                                numGuesses -=+numGameWon;
-                                break;
-                            case 4:
-                                numGuesses -=numGameWon;
-                                break;
-                            case 5:
-                                numGuesses -=numGameWon;
-                                break;
-                            case 6:
-                                numGuesses -=numGameWon;
-                                break;
-                            default:
-                                checkButton.setEnabled(false);
-                        }
+                        checkButton.setEnabled(false);
                     }
-
 
                 } else {
-                    checkButton.setText("invalid word");
+                    Toast.makeText(MainActivity.this, "Invalid Word Length", Toast.LENGTH_SHORT).show();
 
                 }
 
