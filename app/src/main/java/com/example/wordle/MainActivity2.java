@@ -101,31 +101,31 @@ public class MainActivity2 extends AppCompatActivity {
         Button btn1 = findViewById(R.id.btn1);
         Button btn2 = findViewById(R.id.btn2);
 
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-                wordlist = extractWordList();
-                word =  generateWord( wordlist);
-                Intent intent = new Intent(MainActivity2.this, MainActivity.class);
-                intent.putExtra("word",word);
-                startActivity(intent);
-            }
-        });
+                    wordlist = extractWordList();
+                    word =  generateWord( wordlist);
+                    Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+                    intent.putExtra("word",word);
+                    startActivity(intent);
+                }
+            });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            btn2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-                wordlist = extractWordList2();
-                word =  generateWord( wordlist);
+                    wordlist = extractWordList2();
+                    word =  generateWord( wordlist);
 
-                Intent intent = new Intent(MainActivity2.this, MainActivity.class);
-                intent.putExtra("word",word);
+                    Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+                    intent.putExtra("word",word);
 
-                startActivity(intent);
-            }
-        });
+                    startActivity(intent);
+                }
+            });
 
     }
 }

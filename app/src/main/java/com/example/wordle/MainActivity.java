@@ -26,7 +26,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private int numGuesses =0;
 
-    final int MAX_GUESS = 5;
+    final int MAX_GUESS = 4;
     private int numGameWon = 0;
     private int numGameLost = 0;
     private String word = "";
@@ -56,13 +56,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         word = intent.getStringExtra("word");
+        String message = "Let's Try again";
 
         checkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 String guess = checkInput.getEditText().getText().toString();
-   checkInput.getEditText().getText().clear();
+                checkInput.getEditText().getText().clear();
 
                 if (guess.length() == 5) {
                     if(numGuesses == 0){
@@ -126,8 +127,8 @@ public class MainActivity extends AppCompatActivity {
 
                         TextView txv4 = findViewById(R.id.group1Tv4);
 
-                        txv4.setText(guess.substring(3,4));
-                        txv4.setAllCaps(true);
+                            txv4.setText(guess.substring(3,4));
+                            txv4.setAllCaps(true);
 
                         if (guess.charAt(3) == word.charAt(3)) {
                             txv4.setBackgroundColor(Color.GREEN);
@@ -164,12 +165,15 @@ public class MainActivity extends AppCompatActivity {
 
                         if(cout == 5){
 
-                            numGuesses --;
                             numGameWon ++;
                             GameWin = true;
-                            Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                            startActivity(intent);
+
+                            Toast.makeText(MainActivity.this, "Congratulation you won "+"\n"+"Your score is: "+ numGameWon+"\n"+"Let's try again!!", Toast.LENGTH_LONG).show();
                         } else{
-                            Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_LONG).show();
                             numGameLost ++;
                             GameWin = false;
                             numGuesses ++;
@@ -276,13 +280,15 @@ public class MainActivity extends AppCompatActivity {
 
                         if(cout1 == 5){
 
-                            numGuesses --;
-
                             GameWin = true;
                             numGameWon ++;
-                            Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                            startActivity(intent);
+
+                            Toast.makeText(MainActivity.this, "Congratulation you won "+"\n"+"Your score is: "+ numGameWon+"\n"+"Let's try again!!", Toast.LENGTH_LONG).show();
                         } else{
-                            Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_LONG).show();
                             GameWin = false;
                             numGuesses ++;
                         }
@@ -387,13 +393,15 @@ public class MainActivity extends AppCompatActivity {
 
                         if(count2 == 5){
 
-                            numGuesses --;
-
                             GameWin = true;
                             numGameWon ++;
-                            Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                            startActivity(intent);
+
+                            Toast.makeText(MainActivity.this, "Congratulation you won "+"\n"+"Your score is: "+ numGameWon+"\n"+"Let's try again!!", Toast.LENGTH_LONG).show();
                         } else{
-                            Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_LONG).show();
                             GameWin = false;
                             numGuesses ++;
                         }
@@ -499,13 +507,15 @@ public class MainActivity extends AppCompatActivity {
 
                         if(count3 == 5){
 
-                            numGuesses --;
-
                             GameWin = true;
                             numGameWon ++;
-                            Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                            startActivity(intent);
+
+                            Toast.makeText(MainActivity.this, "Congratulation you won "+"\n"+"Your score is: "+ numGameWon+"\n"+"Let's try again!!", Toast.LENGTH_LONG).show();
                         } else{
-                            Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_LONG).show();
                             GameWin = false;
                             numGuesses ++;
                         }
@@ -606,13 +616,15 @@ public class MainActivity extends AppCompatActivity {
 
                         if(coun4 == 5){
 
-                            numGuesses --;
-
                             GameWin = true;
                             numGameWon ++;
-                            Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                            startActivity(intent);
+
+                            Toast.makeText(MainActivity.this, "Congratulation you won "+"\n"+"Your score is: "+ numGameWon+"\n"+"Let's try again!!", Toast.LENGTH_LONG).show();
                         } else{
-                            Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_LONG).show();
                             GameWin = false;
                             numGuesses ++;
                         }
@@ -713,24 +725,29 @@ public class MainActivity extends AppCompatActivity {
 
                         if(count5 == 5){
 
-                            numGuesses --;
-
                             GameWin = true;
                             numGameWon ++;
-                            Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                            startActivity(intent);
+
+                            Toast.makeText(MainActivity.this, "Congratulation you won", Toast.LENGTH_LONG).show();
                         } else{
-                            Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Wrong guess try again", Toast.LENGTH_LONG).show();
                             GameWin = false;
                             numGuesses ++;
                         }
 
-                    }else if(numGuesses >= MAX_GUESS){
+                    } else if(numGuesses >= MAX_GUESS){
 
                         checkButton.setEnabled(false);
+                        Toast.makeText(MainActivity.this, "Game Over!", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+                        startActivity(intent);
                     }
 
                 } else {
-                    Toast.makeText(MainActivity.this, "Invalid Word Length", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Invalid Word Length", Toast.LENGTH_LONG).show();
 
                 }
 
